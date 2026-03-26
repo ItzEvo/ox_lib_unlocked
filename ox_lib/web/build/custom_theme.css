@@ -1,0 +1,166 @@
+/* 
+ * ox_lib custom RDR2 theme
+ * Author: ItzEvo
+ * Edit this file only for most visual changes.
+ */
+:root {
+  --ox-scale: 1.35;
+  --ox-font-letter-spacing: 0.02em;
+
+  --ox-text: #e6d2a2;
+  --ox-text-strong: #f3e1b8;
+  --ox-text-dim: #bea270;
+  --ox-title: #f0deae;
+
+  --ox-bg-main: rgba(61, 43, 25, 0.96);
+  --ox-bg-soft: rgba(86, 61, 36, 0.96);
+  --ox-bg-deep: rgba(43, 30, 17, 0.97);
+  --ox-bg-hover: rgba(111, 80, 45, 0.98);
+
+  --ox-border: rgba(186, 147, 82, 0.58);
+  --ox-border-strong: rgba(221, 182, 106, 0.88);
+  --ox-accent: #c19858;
+  --ox-accent-soft: #9a7442;
+
+  --ox-shadow: rgba(18, 11, 5, 0.52);
+  --ox-inner-highlight: rgba(245, 226, 183, 0.08);
+  --ox-overlay-grain: linear-gradient(180deg, rgba(205, 171, 110, 0.07) 0%, rgba(90, 60, 28, 0.04) 100%);
+  --ox-panel-gradient: linear-gradient(180deg, var(--ox-bg-soft) 0%, var(--ox-bg-main) 48%, var(--ox-bg-deep) 100%);
+}
+
+html {
+  font-size: calc(16px * var(--ox-scale)) !important;
+}
+
+#root {
+  zoom: var(--ox-scale);
+}
+
+@supports not (zoom: 1) {
+  #root {
+    transform: scale(var(--ox-scale));
+    transform-origin: top right;
+    width: calc(100% / var(--ox-scale));
+    height: calc(100% / var(--ox-scale));
+    margin-left: auto;
+  }
+}
+
+html, body, #root,
+[class*="mantine-"],
+[class^="mantine-"],
+button, input, textarea, select, label, span, p, h1, h2, h3, h4, h5, h6, small, strong, a, li, div {
+  color: var(--ox-text) !important;
+  letter-spacing: var(--ox-font-letter-spacing);
+  text-shadow: 0 1px 0 rgba(12, 8, 3, 0.35);
+}
+
+[class*="title"],
+[class*="label"],
+[class*="section"],
+[class*="header"],
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ox-title) !important;
+  letter-spacing: 0.05em;
+}
+
+[class*="mantine-Paper-root"],
+[class*="mantine-Menu-dropdown"],
+[class*="mantine-Popover-dropdown"],
+[class*="mantine-Modal-content"],
+[class*="mantine-Drawer-content"],
+[class*="mantine-Tooltip-tooltip"],
+[class*="mantine-Card-root"],
+[class*="mantine-Accordion-item"],
+[class*="mantine-Accordion-panel"],
+[class*="mantine-Input-input"],
+[class*="mantine-Select-input"],
+[class*="mantine-Textarea-input"],
+[class*="mantine-Combobox-dropdown"] {
+  background: var(--ox-overlay-grain), var(--ox-panel-gradient) !important;
+  border: 1px solid var(--ox-border) !important;
+  box-shadow: inset 0 1px 0 var(--ox-inner-highlight), 0 0.45rem 1.35rem var(--ox-shadow) !important;
+  color: var(--ox-text) !important;
+  border-radius: 0.18rem !important;
+  backdrop-filter: none !important;
+}
+
+[class*="mantine-Button-root"],
+[class*="mantine-ActionIcon-root"],
+[class*="mantine-Accordion-control"],
+[class*="mantine-Menu-item"],
+button {
+  background:
+    linear-gradient(180deg, rgba(210, 174, 103, 0.10) 0%, rgba(0, 0, 0, 0.00) 40%),
+    linear-gradient(180deg, var(--ox-bg-soft) 0%, var(--ox-bg-main) 100%) !important;
+  border: 1px solid var(--ox-border-strong) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(250, 236, 198, 0.06),
+    0 0.35rem 1rem var(--ox-shadow) !important;
+  color: var(--ox-text-strong) !important;
+  border-radius: 0.14rem !important;
+}
+
+[class*="mantine-Button-root"]:hover,
+[class*="mantine-ActionIcon-root"]:hover,
+[class*="mantine-Accordion-control"]:hover,
+[class*="mantine-Menu-item"]:hover,
+button:hover {
+  background:
+    linear-gradient(180deg, rgba(228, 193, 120, 0.18) 0%, rgba(0, 0, 0, 0.00) 45%),
+    linear-gradient(180deg, var(--ox-bg-hover) 0%, var(--ox-bg-soft) 100%) !important;
+  border-color: var(--ox-border-strong) !important;
+  color: #f8e8c0 !important;
+}
+
+input, textarea, select {
+  caret-color: var(--ox-text-strong) !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+[class*="placeholder"],
+[class*="description"],
+small {
+  color: var(--ox-text-dim) !important;
+  opacity: 1 !important;
+}
+
+hr,
+[class*="Divider-root"] {
+  border-color: rgba(193, 152, 88, 0.38) !important;
+}
+
+*:focus-visible {
+  outline: 1px solid rgba(221, 182, 106, 0.78) !important;
+  outline-offset: 1px !important;
+}
+
+[class*="notification"],
+[class*="textui"],
+[class*="progress"],
+[class*="description"] {
+  color: var(--ox-text-strong) !important;
+}
+
+*::-webkit-scrollbar {
+  width: 0.45rem;
+  height: 0.45rem;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(39, 27, 15, 0.75);
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(168, 131, 75, 0.75);
+  border: 1px solid rgba(60, 42, 24, 0.85);
+}
+
+.ox-theme-panel {
+  background: var(--ox-overlay-grain), var(--ox-panel-gradient) !important;
+  border: 1px solid var(--ox-border) !important;
+  box-shadow: inset 0 1px 0 var(--ox-inner-highlight), 0 0.45rem 1.35rem var(--ox-shadow) !important;
+}
+.ox-theme-title {
+  color: var(--ox-title) !important;
+  letter-spacing: 0.05em;
+}
